@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  table {
+    height: 100%;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td
+  {
+      width: 50%;
+      font-size: 2vw;
+  }
+  td:nth-child(1)
+  {
+      background-color: lightgreen;
+  }
+  td:nth-child(2)
+    {
+        background-color: pink;
+    }
