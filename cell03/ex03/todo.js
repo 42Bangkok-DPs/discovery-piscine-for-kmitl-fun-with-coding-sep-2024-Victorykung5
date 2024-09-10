@@ -1,17 +1,43 @@
-let ft_list = document.getElementById('ft_list');
-        let newTask = document.getElementById('new-task');
+document.addEventListener('DOMContentLoaded', () => {
+    const listContainer = document.getElementById('ft_list');
+    const newTaskButton = document.getElementById('new-task');
 
-        newTask.addEventListener('click', () => {
-            let task = prompt('Enter new task');
-            if (task) {
-                let newTodo = document.createElement('div');
-                newTodo.classList.add('todo');
-                newTodo.textContent = task;
-                newTodo.addEventListener('click', () => {
-                    if (confirm('Are you sure you want to delete this task?')) {
-                        newTodo.remove();
-                    }
-                });
-                ft_list.insertBefore(newTodo, ft_list.firstChild);
+    const cookieString = document.cookie;
+    const cookieArray = cookieString.split('; ');
+    const tasksCookie = cookieArray.find(row => row.startsWith('tasks='));
+    if (tasksCookie) {
+            const tasks = JSON.parse(tasksCookie.split('=')[1]);
+            tasks.forEach(task => addTask(task));
+    }
+
+    newTaskButton.addEventListener('click', () => {
+        const task = prompt('Enter a new task:');
+        if (task && task.trim() !== '') {
+            addTask(task);
+            saveTasks();
+        }
+    });
+
+    function createTaskElement(taskText) {
+        const taskElement = document.createElement('div');
+        taskElement.className = 'todo';
+        taskElement.textContent = taskText;
+        taskElement.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete this task?')) {
+                taskElement.remove();
+                saveTasks();
             }
         });
+        return taskElement;
+    }
+
+    function addTask(taskText) {
+        const taskElement = createTaskElement(taskText);
+        listContainer.insertBefore(taskElement, listContainer.firstChild);
+    }
+
+    function saveTasks() {
+        const tasksString  = JSON.stringify(Array.from(listContainer.children).map(child => child.textContent).reverse());
+        document.cookie = `tasks=${tasksString};`;
+    }
+});
