@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+
+<body>
+    <form id="calculator-form">
+        <input type="text" id="leftOperand" placeholder="Left operand" equired>
+
+        <select id="operator" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input type="text" id="rightOperand" placeholder="Right operand" required>
+        <br>
+        <input type="button" value="Try me!" id="submit">
+    </form>
+</body>
+<script>
+    function performCalculation() {
+        const left = parseInt(document.getElementById('leftOperand').value);
+        const right = parseInt(document.getElementById('rightOperand').value);
+        const operator = document.getElementById('operator').value;
+
+        if (isNaN(left) || isNaN(right) || left < 0 || right < 0) {
+            alert('Error :(');
+            console.log('Error :(');
+            return;
+        }
+
+        if ((operator === '/' || operator === '%') && right === 0) {
+            alert("It’s over 9000!");
+            console.log("It’s over 9000!");
+            return;
+        }
+
+        let result;
+        switch (operator) {
+            case '+':
+                result = left + right;
+                break;
+            case '-':
+                result = left - right;
+                break;
+            case '*':
+                result = left * right;
+                break;
+            case '/':
+                result = left / right;
+                break;
+            case '%':
+                result = left % right;
+                break;
+            default:
+                result = null;
+        }
+
+        alert('Result: ' + result);
+        console.log('Result: ' + result);
+    }
+
+    document.getElementById('submit').addEventListener('click', performCalculation);
+
+    function periodicReminder() {
+        alert('Please, use me');
+    }
+
+    setInterval(periodicReminder, 30000);
+</script>
+
+</html>
