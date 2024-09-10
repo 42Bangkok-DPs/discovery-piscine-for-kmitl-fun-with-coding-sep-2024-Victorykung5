@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .boolon {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border-radius: 50%;
+    }
+</style>
+<body>
+    <div class="boolon" id="boolon"></div>
+</body>
+<script>
+    let balloon = document.getElementById('boolon');
+    let currentWidth = balloon.offsetWidth;
+    let balloonColor = ['red', 'green','blue'];
+    let counterColor = 0;
+    balloon.addEventListener('click', () => {
+        counterColor += 1;
+        if (counterColor > 2) {
+            counterColor = 0;
+        }
+        if (currentWidth+10>420) {
+            currentWidth = 190;
+        }
+        balloon.style.backgroundColor = balloonColor[counterColor];
+        balloon.style.width = (currentWidth + 10) + 'px';
+        balloon.style.height = (currentWidth + 10) + 'px';
+        currentWidth = balloon.offsetWidth;
+    });
+
+    balloon.addEventListener('mouseleave', () => {
+        counterColor -=1;
+        if (counterColor < 0) {
+            counterColor = 2;
+        }
+        balloon.style.backgroundColor = balloonColor[counterColor];
+        if (currentWidth-5<199) {
+            return;
+        }
+        balloon.style.width = currentWidth - 5 + 'px';
+        balloon.style.height = currentWidth - 5 + 'px';
+        currentWidth = parseInt(balloon.style.width);
+    });
+
+</script>
+</html>
