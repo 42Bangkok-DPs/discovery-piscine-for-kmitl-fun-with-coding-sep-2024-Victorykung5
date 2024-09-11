@@ -1,12 +1,39 @@
-.center-box{
-    align-items: center;
+.image1 {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/035/480/098/small_2x/ai-generated-analyze-the-impact-of-climate-change-on-the-absolute-green-tree-nature-background-considering-its-effects-on-both-plant-life-and-the-migratory-patterns-of-colorful-birds-photo.jpg');
+    background-attachment: fixed;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 100vh;
-    font-size: 50px;
-    color: white;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
+
+.block {
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.image2 {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/038/338/623/small_2x/ai-generated-bright-red-holi-paint-color-powder-festival-explosion-burst-isolated-white-background-industrial-print-concept-background-free-photo.jpg');;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

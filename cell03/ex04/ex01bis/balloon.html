@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .balloon {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        border-radius: 50%;
+    }
+</style>
+<body>
+    <div class="balloon" id="balloon"></div>
+</body>
+<script>
+    let balloon = $('#balloon');
+    let currentWidth = balloon.width();
+    let balloonColor = ['red', 'green','blue'];
+    let counterColor = 0;
+    balloon.on('click', () => {
+        counterColor += 1;
+        if (counterColor > 2) {
+            counterColor = 0;
+        }
+        if (currentWidth+10>420) {
+            currentWidth = 190;
+        }
+        balloon.css(
+            {
+                'backgroundColor': balloonColor[counterColor],
+                'width': (currentWidth + 10) + 'px',
+                'height': (currentWidth + 10) + 'px'
+            }
+        );
+        currentWidth = balloon.width();
+    });
+
+    balloon.on('mouseleave', () => {
+        counterColor -=1;
+        if (counterColor < 0) {
+            counterColor = 2;
+        }
+        balloon.css(
+            {
+                'backgroundColor': balloonColor[counterColor],
+            }
+        );
+        if (currentWidth-5<199) {
+            return;
+        }
+        balloon.css(
+            {
+                'width': (currentWidth - 5) + 'px',
+                'height': (currentWidth - 5) + 'px'
+            }
+        );
+        currentWidth = balloon.width();
+    });
+
+</script>
+</html>

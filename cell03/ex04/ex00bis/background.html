@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="background.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <button>Change color</button>
 </body>
 <script>
     let button = document.querySelector('button');
-    button.addEventListener('click', () => {
+    $('button').on('click', () => {
         r = Math.floor(Math.random() * 256);
         g = Math.floor(Math.random() * 256);
         b = Math.floor(Math.random() * 256);
