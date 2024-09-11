@@ -27,11 +27,20 @@
 </body>
 <script>
     function performCalculation() {
-        const left = parseInt($('#leftOperand').val());
-        const right = parseInt($('#rightOperand').val());
+        const leftVal = $('#leftOperand').val();
+        const rightVal = $('#rightOperand').val();
+        
+        if (/[^0-9]/.test(leftVal) || /[^0-9]/.test(rightVal)) {
+            alert('Error :(');
+            console.log('Error :(');
+            return;
+        }
+        
+        const left = parseInt(leftVal);
+        const right = parseInt(rightVal);
         const operator = $('#operator').val();
-
-        if (isNaN(left) || isNaN(right) || left < 0 || right < 0) {
+        
+        if (isNaN(left) || isNaN(right) || left < 0 || right < 0 || !Number.isInteger(left) || !Number.isInteger(right)) {
             alert('Error :(');
             console.log('Error :(');
             return;

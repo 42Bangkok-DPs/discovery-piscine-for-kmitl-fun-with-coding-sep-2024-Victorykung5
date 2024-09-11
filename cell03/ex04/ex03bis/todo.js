@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     function createTaskElement(taskText) {
         const taskElement = $("<div></div>");
-        taskElement.addClass('task');
+        taskElement.addClass('todo');
         taskElement.text(taskText);
         taskElement.on('click', () => {
             if (confirm('Are you sure you want to delete this task?')) {
