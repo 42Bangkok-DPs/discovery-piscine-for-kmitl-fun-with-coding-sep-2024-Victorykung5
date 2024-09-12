@@ -6,8 +6,8 @@ $(document).ready(function() {
     const cookieArray = cookieString.split('; ');
     const tasksCookie = cookieArray.find(row => row.startsWith('tasks='));
     if (tasksCookie) {
-        const tasks = JSON.parse(tasksCookie.split('=')[1]);
-        tasks.forEach(task => addTask(task));
+        const tasks = JSON.parse(decodeURIComponent(tasksCookie.split('=')[1]));
+        tasks.forEach(task => addTask(decodeURI(task)));
     }
 
     newTaskButton.on('click', () => {
@@ -37,9 +37,8 @@ $(document).ready(function() {
     }
 
     function saveTasks() {
-        const tasksString = JSON.stringify(listContainer.children().map(function() {
-            return $(this).text();
-        }).get().reverse());
+        const tasksString = encodeURIComponent(JSON.stringify(listContainer.children().map(function() {return encodeURI($(this).text());}).get().reverse()));
+        console.log(tasksString);
         document.cookie = `tasks=${tasksString};`;
     }
 });
