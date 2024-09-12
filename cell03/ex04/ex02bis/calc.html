@@ -27,8 +27,8 @@
 </body>
 <script>
     function performCalculation() {
-        const leftVal = $('#leftOperand').val();
-        const rightVal = $('#rightOperand').val();
+        const leftVal = $('#leftOperand').val().trim();
+        const rightVal = $('#rightOperand').val().trim();
         
         if (/[^0-9]/.test(leftVal) || /[^0-9]/.test(rightVal)) {
             alert('Error :(');
