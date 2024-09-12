@@ -20,6 +20,10 @@ header {
     background-image: url('https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg');
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+
+    ul{
+        gap: 10px;
+    }
 }
 
 #logo {
@@ -42,6 +46,7 @@ h1, h2 {
     font-family: handjet;
     letter-spacing: 3px;
     margin: 10px;
+    text-align: center;
 }
 
 h1 {
@@ -139,7 +144,7 @@ main {
     color: white;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width < 768px) {
     header {
         flex-direction: column;
         padding: 1rem;
