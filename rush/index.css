@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap');
+
+.handjet {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "ELGR" 1,
+      "ELSH" 2;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+    position: sticky;
+    top: 0;
+    background-image: url('https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg');
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+#logo
+{
+    color: white;
+    text-decoration: none;
+    font-size: 3.5rem;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#logo
+{
+    color: white;
+    text-decoration: none;
+    font-size: 3.5rem;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    
+}
+h1{
+    color: white;
+    font-size: 5rem;
+    font-family: handjet;
+    letter-spacing: 5px;
+}
+h2{
+    color: white;
+    font-size: 3rem;
+    font-family: handjet;
+    letter-spacing: 3px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.container
+{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    padding: 1rem;
+    background-color: transparent;
+    border-radius: 10%;
+    margin-top: 1rem;
+    /* border: 1px solid rgb(255, 255, 255); */
+    color: white;
+}
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+
+    & > *{
+        margin-left: 1rem;
+    }
+}
+.menu a{
+    color: white;
+}
+.select-container{
+    font-family: handjet;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+.select-container section{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+.select-container section img
+{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+.select-container section a{
+    color: rgb(0, 0, 0);
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5%;
+    background-color: white;
+    transition: 0.5s;
+
+}
+.select-container section a:hover{
+    background-color: black;
+    color: white;
+}
+@media screen and (max-width: 600px){
+    .profile-pic{
+        width: 200px;
+        height: 250px;
+    }
+    #logo{
+        display: none;
+    }
+}
